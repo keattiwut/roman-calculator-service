@@ -6,7 +6,7 @@ Scope:
 * Can calculate Roman number
 * Provided result to file
 
-Prerequisit:
+Prerequisite:
 
  * Java version 1.8
  * Maven version 3+
