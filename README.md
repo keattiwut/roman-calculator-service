@@ -25,7 +25,7 @@ mvn clean install
 
 How to run
 
-* Config input and output path in appliation-default.yml (on project or jar directory)
+* Config input and output path in application-default.yml (on project or jar directory)
 
 ```java
 application:
