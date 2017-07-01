@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: roman-calculator-service
+
+application:
+  file:
+    input: ./input/input.txt
+    output: ./output/output.txt

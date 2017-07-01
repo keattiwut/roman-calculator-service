@@ -1,0 +1,8 @@
+XX+II = XXII
+II+II = IV
+XIV+LX = LXXIV
+V+V = X
+X-I = IX
+MCMCXL-X = MMXXX
+XX*II = XL
+XX/II = X
