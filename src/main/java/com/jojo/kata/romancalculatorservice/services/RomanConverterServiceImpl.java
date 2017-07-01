@@ -1,6 +1,7 @@
 package com.jojo.kata.romancalculatorservice.services;
 
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
@@ -12,6 +13,7 @@ import java.util.List;
  * Created by kkosittaruk on 29/06/2017.
  */
 @Service
+@Slf4j
 public class RomanConverterServiceImpl implements RomanConverterService {
 
     private static final List<Integer> ROMAN_VALUES = Arrays.asList(1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1);
@@ -36,7 +38,8 @@ public class RomanConverterServiceImpl implements RomanConverterService {
 
         for (int index = 0; index < ROMAN_SYMBOLS.size(); index++) {
             if (roman.startsWith(ROMAN_SYMBOLS.get(index)))
-                return ROMAN_VALUES.get(index) + toNumerical(roman.replaceFirst(ROMAN_SYMBOLS.get(index), ""));
+                return ROMAN_VALUES.get(index)
+                        + toNumerical(roman.replaceFirst(ROMAN_SYMBOLS.get(index), ""));
         }
         return 0;
     }
