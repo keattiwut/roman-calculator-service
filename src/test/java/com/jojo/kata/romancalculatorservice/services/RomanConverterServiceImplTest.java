@@ -30,7 +30,7 @@ public class RomanConverterServiceImplTest {
     }
 
     @Test
-    public void toNumerical_withXXIV_shouldReturn9() {
+    public void toNumerical_withXXIV_shouldReturn24() {
         int result = romanConverterService.toNumerical("XXIV");
         Assert.assertEquals(24, result);
     }
