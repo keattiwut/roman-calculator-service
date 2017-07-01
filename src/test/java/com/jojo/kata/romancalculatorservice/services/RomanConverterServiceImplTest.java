@@ -1,4 +1,4 @@
-package com.jojo.kata.romancalculatorservice;
+package com.jojo.kata.romancalculatorservice.services;
 
 import com.jojo.kata.romancalculatorservice.services.RomanConverterServiceImpl;
 import org.junit.Assert;
@@ -45,5 +45,11 @@ public class RomanConverterServiceImplTest {
     public void toRoman_roman9_shouldReturnIX() {
         String result = romanConverterService.toRoman(9);
         Assert.assertEquals("IX", result);
+    }
+
+    @Test
+    public void toNumerical_withIVAndIX_shouldReturn4and9() {
+        Integer[] result = romanConverterService.toNumerical("IV", "IX");
+        Assert.assertTrue(result[0] == 4 && result[1] == 9);
     }
 }

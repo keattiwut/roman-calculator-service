@@ -31,7 +31,7 @@ public class FileServiceImpl implements FileService {
     }
 
     @Override
-    public void writeResult(String path, List<String> result) {
+    public void writeResult(String path, List<String> result) throws IOException {
         log.info(String.format("writing output file to path %s", path));
         StringBuilder sb = new StringBuilder();
         for (String line : result) {
@@ -41,6 +41,7 @@ public class FileServiceImpl implements FileService {
             FileUtils.writeStringToFile(new File(path), sb.toString(), StandardCharsets.UTF_8.toString());
         } catch (IOException e) {
             log.error("Cannot write output file", e);
+            throw e;
         }
     }
 }

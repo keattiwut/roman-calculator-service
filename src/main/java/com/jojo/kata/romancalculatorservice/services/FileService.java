@@ -1,5 +1,6 @@
 package com.jojo.kata.romancalculatorservice.services;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -8,5 +9,5 @@ import java.util.List;
 public interface FileService {
     List<String> getInput(String path);
 
-    void writeResult(String path, List<String> result);
+    void writeResult(String path, List<String> result) throws IOException;
 }
