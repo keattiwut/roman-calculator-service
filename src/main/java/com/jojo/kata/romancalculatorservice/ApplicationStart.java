@@ -1,7 +1,7 @@
 package com.jojo.kata.romancalculatorservice;
 
 import com.jojo.kata.romancalculatorservice.services.CalculatorService;
-import com.jojo.kata.romancalculatorservice.services.FileService;
+import com.jojo.kata.romancalculatorservice.services.FileServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -16,14 +16,14 @@ import java.util.List;
 @Slf4j
 public class ApplicationStart implements CommandLineRunner {
 
-    private final FileService fileService;
+    private final FileServiceImpl fileService;
 
     private final CalculatorService calculatorService;
 
     private final Config config;
 
     @Autowired
-    public ApplicationStart(FileService fileService, CalculatorService calculatorService, Config config) {
+    public ApplicationStart(FileServiceImpl fileService, CalculatorService calculatorService, Config config) {
         this.fileService = fileService;
         this.calculatorService = calculatorService;
         this.config = config;

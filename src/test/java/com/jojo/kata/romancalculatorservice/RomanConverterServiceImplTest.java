@@ -1,6 +1,6 @@
 package com.jojo.kata.romancalculatorservice;
 
-import com.jojo.kata.romancalculatorservice.services.RomanConverterService;
+import com.jojo.kata.romancalculatorservice.services.RomanConverterServiceImpl;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -8,13 +8,13 @@ import org.junit.Test;
 /**
  * Created by kkosittaruk on 30/06/2017.
  */
-public class RomanConverterServiceTest {
+public class RomanConverterServiceImplTest {
 
-    private RomanConverterService romanConverterService;
+    private RomanConverterServiceImpl romanConverterService;
 
     @Before
     public void setup() {
-        romanConverterService = new RomanConverterService();
+        romanConverterService = new RomanConverterServiceImpl();
     }
 
     @Test
