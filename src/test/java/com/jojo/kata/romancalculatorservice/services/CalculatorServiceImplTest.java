@@ -1,7 +1,5 @@
 package com.jojo.kata.romancalculatorservice.services;
 
-import com.jojo.kata.romancalculatorservice.exception.ExpressionExtractException;
-import com.jojo.kata.romancalculatorservice.exception.OperatorIllegalException;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -28,6 +26,9 @@ public class CalculatorServiceImplTest {
     @Mock
     RomanConverterService romanConverterService;
 
+    @Mock
+    ExpressionExtractService expressionExtractService;
+
     @Before
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
@@ -40,20 +41,14 @@ public class CalculatorServiceImplTest {
 
     @Test
     public void calculate_withXXplusIV_shouldReturnXXIV() throws Exception {
+        when(expressionExtractService.extractExpression(anyString())).thenReturn(mockExpression());
         when(romanConverterService.toNumerical(anyString(), anyString())).thenReturn(new Integer[]{20, 4});
         when(romanConverterService.toRoman(anyInt())).thenReturn("XXIV");
         List<String> result = calculatorService.calculate(Arrays.asList("XX+IV"));
         assertEquals("XX+IV = XXIV", result.stream().findFirst().get());
     }
 
-    @Test(expected = OperatorIllegalException.class)
-    public void calculate_withSpecialCharacterOperation_shouldThrowOperationIllegalException() {
-        calculatorService.calculate(Arrays.asList("XX@IV"));
+    private Object[] mockExpression() {
+        return new Object[]{"XX", "IV", Operator.ADD};
     }
-
-    @Test(expected = ExpressionExtractException.class)
-    public void calculate_withWrongExpressionPattern_shouldThrowExpressionExtractException() {
-        calculatorService.calculate(Arrays.asList("XXXIV"));
-    }
-
 }
